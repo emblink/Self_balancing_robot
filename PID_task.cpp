@@ -2,17 +2,10 @@
 #include <Adafruit_MPU6050.h>
 #include <Wire.h>
 #include "freertos/task.h"
+#include "pinout.h"
 #define NULL 0
 
 Adafruit_MPU6050 mpu;
-
-#define MPU_SDA D4
-#define MPU_SCL D5
-
-#define MOTOR_LEFT_IN_1 D6
-#define MOTOR_LEFT_IN_2 D3
-#define MOTOR_RIGHT_IN_3 D7
-#define MOTOR_RIGHT_IN_4 D9
 
 static void mpu_init()
 {
@@ -35,9 +28,9 @@ static void motors_init()
     pinMode(MOTOR_RIGHT_IN_3, OUTPUT);
     pinMode(MOTOR_RIGHT_IN_4, OUTPUT);
 
-    digitalWrite(MOTOR_LEFT_IN_1, LOW);
+    digitalWrite(MOTOR_LEFT_IN_1, HIGH);
     digitalWrite(MOTOR_LEFT_IN_2, HIGH);
-    digitalWrite(MOTOR_RIGHT_IN_3, LOW);
+    digitalWrite(MOTOR_RIGHT_IN_3, HIGH);
     digitalWrite(MOTOR_RIGHT_IN_4, HIGH);
 }
 

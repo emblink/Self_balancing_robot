@@ -20,7 +20,7 @@
 #include "sdkconfig.h"
 #include "camera_index.h"
 #include "board_config.h"
-#define sensor_t _sensor_t // !!!!!!!!!! HACK TO MAKE sketch compile
+// #define sensor_t _sensor_t // !!!!!!!!!! HACK TO MAKE sketch compile
 
 #if defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_ARDUHAL_ESP_LOG)
 #include "esp32-hal-log.h"
@@ -336,7 +336,8 @@ static esp_err_t cmd_handler(httpd_req_t *req) {
 
   int val = atoi(value);
   log_i("%s = %d", variable, val);
-  _sensor_t *s = esp_camera_sensor_get();
+  // _sensor_t *s = esp_camera_sensor_get();
+  sensor_t *s = esp_camera_sensor_get();
   int res = 0;
 
   if (!strcmp(variable, "framesize")) {
